@@ -1,0 +1,20 @@
+{
+    "energenie": {
+        "email": "your@email.com",
+        "password": "passypass",
+        "subdeviceIds": [
+            123456
+        ]
+    },
+    "imap": {
+        "imapPath": "{imap.gmail.com:993/imap/ssl}INBOX",
+        "username": "youremail@gmail.com",
+        "password": "passypass"
+    },
+    "telegram": {
+        "botToken": "telegramBptApiToken",
+        "chatIds": [
+            11223344
+        ]
+    }
+}
