@@ -95,3 +95,5 @@ foreach ($config->telegram->chatIds as $chatId) {
         ]
     );
 }
+
+passthru('node '.__DIR__.'/google-home-talker/speak.js');

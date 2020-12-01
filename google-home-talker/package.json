@@ -1,0 +1,24 @@
+{
+  "name": "google-home-talker",
+  "version": "0.0.2",
+  "description": "Play a sound or YouTube, or say a text on Google Home",
+  "main": "GoogleHomeTalk.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "awa2 <takanori.awatsu+npm@gmail.com> (Takanori Awatsu)",
+  "license": "ISC",
+  "dependencies": {
+    "castv2-client": "^1.2.0",
+    "mdns-js": "^1.0.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awa2/google-home-talker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/awa2/google-home-talker/issues"
+  },
+  "homepage": "https://github.com/awa2/google-home-talker#readme"
+}

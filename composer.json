@@ -3,6 +3,7 @@
         "antriver/energenie-mihome-api": "^1.0",
         "php-imap/php-imap": "^4.1",
         "ext-imap": "*",
-        "irazasyed/telegram-bot-sdk": "^3.3"
+        "irazasyed/telegram-bot-sdk": "^3.3",
+        "ext-json": "*"
     }
 }
