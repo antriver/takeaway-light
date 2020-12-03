@@ -74,11 +74,27 @@ if (count($mailIds) < 1) {
 
 var_dump($mailIds);
 
-$mailStr = '';
+$validMails = [];
 foreach ($mailIds as $mailId) {
     $mail = $mailbox->getMail($mailId);
-    $mailStr = "{$mail->id}\t{$mail->date}\t{$mail->fromAddress}\t{$mail->subject}".PHP_EOL;
-    echo $mailStr;
+    // The "since" time doesn't seem to work with imap - it only checks the date.
+    // So filter out and emails where that are too old.
+    if (new DateTime($mail->date) < $since) {
+        continue;
+    }
+
+    $validMails[] = [
+        'id' => $mail->id,
+        'date' => $mail->date,
+        'fromAddress' => $mail->fromAddress,
+        'subject' => $mail->subject,
+    ];
+}
+
+print_r($validMails);
+
+if (count($validMails) < 1) {
+    exit();
 }
 
 $energenie = new MihomeApi($config->energenie->email, $config->energenie->password);
@@ -91,7 +107,7 @@ foreach ($config->telegram->chatIds as $chatId) {
     $telegram->sendMessage(
         [
             'chat_id' => $chatId,
-            'text' => "Light has been turned on because this email was found:\n{$mailStr}",
+            'text' => "Light has been turned on because this email was found:\n".print_r($validMails, true),
         ]
     );
 }
